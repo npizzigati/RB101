@@ -2,22 +2,26 @@ require 'yaml'
 
 def crunch_numbers(n1, n2, op)
   input = case op
-        when '1'
-          n1 + n2
-        when '2'
-          n1 - n2
-        when '3'
-          n1 * n2
-        when '4'
-          if n2 == 0
-            message('division_by_zero')
-          else
-            n1.to_f / n2.to_f
+          when '1'
+            n1 + n2
+          when '2'
+            n1 - n2
+          when '3'
+            n1 * n2
+          when '4'
+            divide(n1, n2)
           end
-        end
 
   # If answer ends in a ".0", convert to integer, so it looks better
   input == input.to_i ? input.to_i : input
+end
+
+def divide(n1, n2)
+  if n2 == 0
+    message('division_by_zero')
+  else
+    n1.to_f / n2.to_f
+  end
 end
 
 def display_dots
@@ -27,19 +31,19 @@ def display_dots
   end
 end
 
-def set_language(lang)
+def establish_language(lang)
   messages = Psych.load_file('messages.yml')
   # Define the #message method using the language parameter entered by the user
   # and the messages loaded from the yaml file
-  define_method(:message) { |msg| "#{messages[msg][lang]}" }
+  define_method(:message) { |msg| messages[msg][lang] }
 end
 
-def is_string_representation_of_float?(string)
+def string_representation_of_float?(string)
   # Allow floats like ".1" and "1." but don't allow just a "."
   string =~ /(^-?\d*\.\d+$)|(^-?\d+\.\d*$)/
 end
 
-def is_string_representation_of_integer?(string)
+def string_representation_of_integer?(string)
   string =~ /^-?\d+$/
 end
 
@@ -47,9 +51,9 @@ def prompt_for_number(position)
   loop do
     print message(position)
     input = gets.chomp
-    if is_string_representation_of_float?(input)
+    if string_representation_of_float?(input)
       return input.to_f
-    elsif is_string_representation_of_integer?(input)
+    elsif string_representation_of_integer?(input)
       return input.to_i
     end
     # if input is not a valid number, print message and repeat loop
@@ -102,7 +106,7 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   lang_id = prompt_for_language
-  set_language(lang_id)
+  establish_language(lang_id)
   puts message('welcome')
   loop do
     number1 = prompt_for_number('first')
