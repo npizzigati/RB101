@@ -1,0 +1,70 @@
+---
+welcome: {
+    en: "⚡ Welcome to the Calculator ⚡",
+    es: "⚡ Bienvenido a la Calculadora ⚡"
+  }
+first: {
+    en: "=> Enter the first number in your operation: ",
+    es: "=> Ingresa el primer número en tu operación: "
+  }
+second: {
+    en: "=> Enter the second number in your operation: ",
+    es: "=> Ingresa el segundo número en tu operación: "
+  }
+integer_or_float: {
+    en: "⛔ Integer or float, please",
+    es: "⛔ Número entero o flotante, por favor"
+  }
+menu_choices: {
+    en: "⛔ Please enter 1, 2, 3 or 4",
+    es: "⛔ Favor de ingresar 1, 2, 3 o 4"
+  }
+"1": {
+    en: "plus",
+    es: "más"
+  }
+"2": {
+    en: "minus",
+    es: "menos"
+  }
+"3": {
+    en: "times",
+    es: "por"
+  }
+"4": {
+    en: "divided by",
+    es: "entre"
+  }
+is: {
+    en: "is",
+    es: "es igual a"
+  }
+again: {
+    en: "Another calculation (1 = Yes / 2 = no)? ",
+    es: "¿Otro cálculo (1 = Sí / 2 = no)? "
+  }
+thanks: {
+    en: "Have a nice day.",
+    es: "Adiós amiguitos. !Vuelvan pronto!"
+  }
+1_or_2: {
+    en: "⛔ Please enter 1 or 2",
+    es: "⛔ Favor de ingresar 1 o 2"
+  }
+division_by_zero: {
+    en: "💥 Division by zero error!",
+    es: "💥 ¡Error de división entre cero!"
+  }
+menu: {
+    en: "=> Choose operation\n
+            1. Add\n
+            2. Subtract\n
+            3. Multiply\n
+            4. Divide",
+    es: "=> Elige operación\n 
+            1. Sumar\n
+            2. Restar\n
+            3. Multiplicar\n
+            4. Dividir"
+  }
+
