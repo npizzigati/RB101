@@ -12,7 +12,7 @@ apr: {
     es: "=> Ingresa el TAE del préstamo (p.ej.: 3.9%): "
   }
 loan_years: {
-    en: "=> Please enter the your loan duration (years): ",
+    en: "=> Please enter the loan duration (years): ",
     es: "=> Ingresa la duración del préstamo (años): "
   }
 enter_valid_amount: {
