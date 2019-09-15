@@ -27,8 +27,8 @@ def valid?(input, validation_criteria:)
 end
 
 def box(string)
-  string_in_box = '┌' + '─' * (string.length + 2) + '┐' + "\n" +
-                  '│ ' + string + ' │' + "\n" +
+  string_in_box = '┌' + '─' * (string.length + 2) + '┐' + "\n" \
+                  '│ ' + string + ' │' + "\n" \
                   '└' + '─' * (string.length + 2) + '┘' + "\n"
   string_in_box
 end
@@ -72,7 +72,7 @@ def prompter(msg, prevalidation_conversion: nil, validation_criteria:,
     puts localize_msg(invalid_input_msg) if invalid_input_msg
   end
 
-input
+  input
 end
 
 def remove_currency_punctuation(input)
@@ -98,7 +98,7 @@ end
 def retrieve_apr
   input = prompter('apr',
                    prevalidation_conversion: :remove_percent_sign,
-                   validation_criteria: {regex: /^\d{1,2}\.?\d{0,4}$/, gt: 0},
+                   validation_criteria: {regex: /^\d{0,2}\.?\d{0,4}$/, gt: 0},
                    invalid_input_msg: 'enter_valid_percentage')
   input.to_f / 100
 end
@@ -136,7 +136,7 @@ if __FILE__ == $PROGRAM_NAME
     loan_years = retrieve_loan_years
     monthly_payment = calculate_monthly_payment(loan_amount, apr, loan_years)
     print "\n" + localize_msg('your_monthly_payment_is')
-    print sprintf('%.2f', monthly_payment.round(2, half: :even))
+    print format('%.2f', monthly_payment.round(2, half: :even))
     print localize_msg('which_you_will_be_paying_for_the_next')
     print loan_years * 12
     puts localize_msg('months')

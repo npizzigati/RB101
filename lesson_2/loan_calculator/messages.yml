@@ -40,8 +40,8 @@ months: {
     es: " meses." 
   }
 again: {
-    en: "Another calculation? (Y)es / (n)o: ",
-    es: "¿Otro cálculo? (S)í / (n)o: " 
+    en: "Another calculation? (y)es / (n)o: ",
+    es: "¿Otro cálculo? (s)í / (n)o: " 
   }
 enter_y_or_n: {
     en: "⛔ Please enter y / n",
