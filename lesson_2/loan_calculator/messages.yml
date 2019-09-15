@@ -1,0 +1,54 @@
+---
+welcome: {
+    en: "Welcome to the Loan Payment Calculator",
+    es: "Bienvenido a la Calculadora de Plazos"
+  }
+loan_amount: {
+    en: "=> Please enter the total amount of your loan: ",
+    es: "=> Ingresa el monto total de tu préstamo: "
+  }
+apr: {
+    en: "=> Please enter the loan APR (e.g.: 3.9%): ",
+    es: "=> Ingresa el TAE del préstamo (p.ej.: 3.9%): "
+  }
+loan_years: {
+    en: "=> Please enter the your loan duration (years): ",
+    es: "=> Ingresa la duración del préstamo (años): "
+  }
+enter_valid_amount: {
+    en: "⛔ Please enter a valid amount.",
+    es: "⛔ Favor de ingresar un monto válido."
+  }
+enter_valid_percentage: {
+    en: "⛔ Please enter a valid percentage.",
+    es: "⛔ Favor de ingresar un porcentaje válido."
+  }
+enter_valid_years: {
+    en: "⛔ Please enter a valid number of years.",
+    es: "⛔ Favor de ingresar un número válido de años."
+  }
+your_monthly_payment_is: {
+    en: "Your monthly payment is $",
+    es: "Tu pago mensual es de $" 
+  }
+which_you_will_be_paying_for_the_next: {
+    en: ", which you will be paying for the next ",
+    es: ", lo cual estarás pagando por los próximos " 
+  }
+months: {
+    en: " months.",
+    es: " meses." 
+  }
+again: {
+    en: "Another calculation? (Y)es / (n)o: ",
+    es: "¿Otro cálculo? (S)í / (n)o: " 
+  }
+enter_y_or_n: {
+    en: "⛔ Please enter y / n",
+    es: "⛔ Favor de ingresar s / n" 
+  }
+goodbye: {
+    en: "Goodbye.",
+    es: "Adiós." 
+  }
+
