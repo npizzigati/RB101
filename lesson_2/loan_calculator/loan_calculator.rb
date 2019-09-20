@@ -41,7 +41,7 @@ def localize_msg(message)
     input = gets.chomp
     break if %w{1 2}.include?(input)
   end
-  lang = {'1' => 'en', '2' => 'es'}[input]
+  lang = { '1' => 'en', '2' => 'es' }[input]
   # Load messages from yaml file into messages hash
   messages = Psych.load_file('messages.yml')
   # redefine #localize_msg method to use messages hash and lang parameter
@@ -90,7 +90,7 @@ end
 def retrieve_loan_amount
   input = prompter('loan_amount',
                    prevalidation_conversion: :remove_currency_punctuation,
-                   validation_criteria: {regex: /^\d{1,8}\.?\d{0,2}$/, gt: 0},
+                   validation_criteria: { regex: /^\d{1,8}\.?\d{0,2}$/, gt: 0 },
                    invalid_input_msg: 'enter_valid_amount')
   input.to_f
 end
@@ -98,7 +98,7 @@ end
 def retrieve_apr
   input = prompter('apr',
                    prevalidation_conversion: :remove_percent_sign,
-                   validation_criteria: {regex: /^\d{0,2}\.?\d{0,4}$/, gt: 0},
+                   validation_criteria: { regex: /^\d{0,2}\.?\d{0,4}$/, gt: 0 },
                    invalid_input_msg: 'enter_valid_percentage')
   input.to_f / 100
 end
@@ -106,7 +106,7 @@ end
 def retrieve_loan_years
   input = prompter('loan_years',
                    prevalidation_conversion: :remove_years_text,
-                   validation_criteria: {regex: /^\d{1,2}$/, gt: 0},
+                   validation_criteria: { regex: /^\d{1,2}$/, gt: 0 },
                    invalid_input_msg: 'enter_valid_years')
   input.to_i
 end
@@ -122,7 +122,7 @@ end
 def do_it_again?
   input = prompter('again',
                    prevalidation_conversion: :remove_years_text,
-                   validation_criteria: {regex: /^[ysn]$|^yes$|^sí$|^no$/i},
+                   validation_criteria: { regex: /^[ysn]$|^yes$|^sí$|^no$/i },
                    invalid_input_msg: 'enter_y_or_n')
   input =~ /^[ys]$|^yes$|^sí$|^si$/i
 end
