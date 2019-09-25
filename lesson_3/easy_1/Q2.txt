@@ -1,0 +1,26 @@
+Question 2
+Describe the difference between ! and ? in Ruby. And explain what would happen in the following scenarios:
+
+Answers:
+what is != and where should you use it?
+-> does not equal; use in a conditional
+
+put ! before something, like !user_name
+-> means "not"; in this case, "not user name"
+ANSWER: Turns an object into the opposite of its boolean equivalent
+
+put ! after something, like words.uniq!
+-> indicates a destructive/mutating function
+
+put ? before something
+-> Not sure...
+ANSWER: ? : is ternary operator 
+
+put ? after something
+After a function, indicates that function will return true or false
+Also used in ternary expression after condition
+
+
+put !! before something, like !!user_name
+-> Not sure again...
+ANSWER: Turns an object into its boolean equivalent
