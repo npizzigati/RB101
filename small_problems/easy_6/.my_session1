@@ -1,0 +1,5 @@
+display parts
+display middle
+set autoirb false
+set autolist true
+set basename false
