@@ -1,4 +1,6 @@
 require 'io/console'
+require 'pry'
+require 'pry-byebug'
 
 # Configurable options
 GOES_FIRST = :choose # possible choices are :human, :computer and :choose
@@ -32,6 +34,8 @@ TINY_BOARD_NUMBERS = { '1' => '₁', '2' => '₂', '3' => '₃', '4' => '₄',
                        '9' => '₉' }
 
 IDX_OFFSET = 1
+
+MAX_DEPTH = 10
 
 Node = Struct.new(:state, :children, :score)
 
@@ -192,7 +196,7 @@ end
 def retrieve_best_move(state)
   state_tree = minimax(Node.new(state, [], nil), COMPUTER)
   retrieve_score(state_tree)
-  max_score = -1
+  max_score = -MAX_DEPTH
   best_idx = 0
   state_tree.children.each.with_index do |child, idx|
     if child.score > max_score
@@ -203,14 +207,15 @@ def retrieve_best_move(state)
   state_tree.children[best_idx].state
 end
 
-def minimax(node, turn=COMPUTER, max=true, memo_hsh=Hash.new)
+def minimax(node, turn=COMPUTER, max=true, memo_hsh=Hash.new, depth=0)
+  depth += 1
   possible_moves = retrieve_possible_moves(node.state)
 
   if winner?(node.state, other(turn))
-    node.score = max ? -1 : 1
+    node.score = max ? -MAX_DEPTH - depth : MAX_DEPTH - depth
     return
   elsif possible_moves.empty?
-    node.score = 0
+    node.score = -depth
     return
   end
 
@@ -220,11 +225,11 @@ def minimax(node, turn=COMPUTER, max=true, memo_hsh=Hash.new)
     return
   end
 
-  minimax_create_child_nodes(node, turn, possible_moves, max, memo_hsh)
+  minimax_create_child_nodes(node, turn, possible_moves, max, memo_hsh, depth)
   node
 end
 
-def minimax_create_child_nodes(node, turn, possible_moves, max, memo_hsh)
+def minimax_create_child_nodes(node, turn, possible_moves, max, memo_hsh, depth)
   possible_moves.each do |move|
     child_state = node.state.dup
     child_state[move - IDX_OFFSET] = turn
@@ -233,7 +238,7 @@ def minimax_create_child_nodes(node, turn, possible_moves, max, memo_hsh)
 
   node.children.each do |child|
     other_turn = other(turn)
-    minimax(child, other_turn, !max, memo_hsh)
+    minimax(child, other_turn, !max, memo_hsh, depth)
 
     memo_key = [child.state, other_turn].hash
     memo_hsh[memo_key] = child
@@ -242,11 +247,7 @@ end
 
 def retrieve_score(node, max=true)
   children_scores = node.children.map do |child|
-    if !child.score.nil?
-      child.score
-    else
-      retrieve_score(child, !max)
-    end
+    child.score || retrieve_score(child, !max)
   end
 
   node.score = max ? children_scores.max : children_scores.min
