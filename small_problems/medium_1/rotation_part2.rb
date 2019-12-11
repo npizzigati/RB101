@@ -27,11 +27,12 @@ assume that n is always a positive integer
 implicit: NA
 algorithm:
 convert to string and split into part that will be rotated and part that won't
-  using multiple assignment and indices
+using multiple assignment and indices
 convert part that will be rotated into array and rotate, then join back
   together into string and add to other part
 convert entire string back into integer
 =end
+
 require_relative './rotation_part1.rb'
 
 def rotate_rightmost_digits(number, n)
@@ -40,5 +41,3 @@ def rotate_rightmost_digits(number, n)
   p2_r = rotate_array(p2)
   (p1 + p2_r).join.to_i
 end
-
-

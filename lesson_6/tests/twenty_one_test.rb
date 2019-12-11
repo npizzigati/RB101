@@ -216,7 +216,7 @@ class HandsTest < Minitest::Test
     assert_equal(expected, actual)
   end
 
-  def test_busts?
+  def test_busts? 
     player = [['A', :clubs], ['6', :hearts],
               ['K', :spades], ['J', :clubs]]
     expected = true
@@ -224,7 +224,7 @@ class HandsTest < Minitest::Test
     assert_equal(expected, actual)
   end
 
-  def test_dealer_should_hit?
+  def test_dealer_should_hit? 
     dealer = [['A', :clubs], ['3', :hearts], ['J', :clubs]]
     expected = true
     actual = dealer_should_hit?(dealer)
