@@ -27,7 +27,6 @@ memoization). To obtain subsequent last digits, take the mod 60 of n (last digit
 sequence repeats every 60 digits).
 =end
 
-
 def fib(num, memo=Hash.new)
   if num < 3
     1
